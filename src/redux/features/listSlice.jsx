@@ -9,9 +9,11 @@ export const listSlice = createSlice({
     reducers: {
         add: (state, action) => {
             state.list = [...state.list, action.payload]
+            localStorage.setItem('list', JSON.stringify(state.list))
         },
         remove: (state) => {
             state.list = []
+            localStorage.removeItem('list')
         }
     }
 })
